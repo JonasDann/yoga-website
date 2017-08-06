@@ -1,0 +1,27 @@
+{
+  "name": "yoga-meditation_kerstin_dann",
+  "version": "0.1.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JonasDann/yoga-website.git"
+  },
+  "keywords": [
+    "Yoga",
+    "Meditation",
+    "Website"
+  ],
+  "author": "Jonas Dann <jonas@dann.io>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JonasDann/yoga-website/issues"
+  },
+  "homepage": "https://github.com/JonasDann/yoga-website#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1"
+  }
+}
