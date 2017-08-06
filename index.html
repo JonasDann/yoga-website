@@ -12,11 +12,36 @@
         <script type="text/javascript" src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
 		<title>Yoga - Meditation</title>
+
+        <script>
+            $(document).ready(function() {
+                var $burger = $(".glyphicon.glyphicon-menu-hamburger");
+                var $closeBurger = $(".glyphicon.glyphicon-remove");
+                var $menu = $(".navigation ul");
+
+                $burger.on("click", function () {
+                    $burger.hide();
+                    $closeBurger.show();
+                    $menu.show();
+                });
+
+                function closeMenu() {
+                    if ($closeBurger.is(":visible")) {
+                        $burger.show();
+                        $closeBurger.hide();
+                        $menu.hide();
+                    }
+                }
+
+                $closeBurger.on("click", closeMenu);
+                $menu.find("li").on("click", closeMenu);
+            });
+        </script>
 	</head>
 	<body>
         <div class="nav-bar-wrapper">
             <div class="nav-bar">
-                <div class="title"><a href="">Yoga - Meditation<br><span class="subtitle">Kerstin Dann</span></a></div>
+                <div class="title"><a href="/">Yoga - Meditation<br><span class="subtitle">Kerstin Dann</span></a></div>
                 <div class="navigation">
                     <ul>
                         <li><a href="#welcome">Willkommen</a></li>
@@ -24,11 +49,15 @@
                         <li><a href="#yoga-a-z">Yoga A-Z</a></li>
                         <li><a href="#contact">Kontakt</a></li>
                     </ul>
+                    <div class="burger-wrapper">
+                        <span class="glyphicon glyphicon-menu-hamburger"></span>
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </div>
                 </div>
                 <div class="clearfix"></div>
             </div>
         </div>
-		<img class="index-image" src="P1050025.jpg">
+		<img class="index-image" src="images/P1050025.jpg">
 		<div class="content">
             <a name="welcome"></a>
             <div class="welcome">
@@ -41,13 +70,13 @@
                 </p>
             </div>
             <a name="dates"></a>
-            <div class="container-fluid">
+            <div class="container-fluid dates">
                 <h1>Seminare</h1>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="workshop">
                             <div class="image">
-                                <img src="mandala.png">
+                                <img src="images/mandala.png">
                             </div>
                             <div class="content">
                                 <h2>Yoga Kurs</h2>
@@ -61,7 +90,7 @@
                     <div class="col-md-4">
                         <div class="workshop">
                             <div class="image">
-                                <img src="mandala.png">
+                                <img src="images/mandala.png">
                             </div>
                             <div class="content">
                                 <h2>Yoga Seminar</h2>
@@ -75,7 +104,7 @@
                     <div class="col-md-4">
                         <div class="workshop">
                             <div class="image">
-                                <img src="mandala.png">
+                                <img src="images/mandala.png">
                             </div>
                             <div class="content">
                                 <h2>Yoga Seminar</h2>
@@ -121,6 +150,7 @@
                     <button type="button" class="btn btn-default">X</button>
                     <button type="button" class="btn btn-default">Y</button>
                     <button type="button" class="btn btn-default">Z</button>
+                    <a class="btn btn-default" href="yoga-a-z.html">Alle</a>
                 </div>
             </div>
 			<a name="contact"></a>
@@ -129,26 +159,26 @@
                 <form>
                     <div class="form-group">
                         <label for="email-input">E-Mail</label>
-                        <input class="form-control" type="text" name="email" id="email-input" placeholder="Ihre E-Mail Adresse">
+                        <input class="form-control" name="email" id="email-input" placeholder="Ihre E-Mail Adresse">
                     </div>
                     <div class="form-group">
                         <label for="subject-input">Betreff</label>
-                        <input class="form-control" type="text" name="subject" id="subject-input" placeholder="Ihr Anliegen">
+                        <input class="form-control" name="subject" id="subject-input" placeholder="Ihr Anliegen">
                     </div>
                     <div class="form-group">
                         <label for="content-input">Text</label>
                         <textarea class="form-control" name="content" id="content-input" placeholder="Ihre Nachricht"></textarea>
                     </div>
-                    <button class="btn btn-pink" type="submit"><span class="glyphicon glyphicon-send"></span> Absenden</button>
+                    <button class="btn btn-pink"><span class="glyphicon glyphicon-send"></span> Absenden</button>
                 </form>
             </div>
 		</div>
         <div class="footer-wrapper">
-            <div class="footer">
+            <div class="container-fluid footer">
                 <div class="row">
-                    <div class="col-md-4 copyright">© 2017 - Kerstin Dann</div>
-                    <div class="col-md-4 impressum"><a href="">Impressum</a></div>
-                    <div class="col-md-4 design">Design - <a href="">Jonas Dann</a></div>
+                    <div class="col-sm-4 copyright">© 2017 - Kerstin Dann</div>
+                    <div class="col-sm-4 impressum"><a href="/impressum.html">Impressum</a></div>
+                    <div class="col-sm-4 design">Design - <a href="https://github.com/JonasDann">Jonas Dann</a></div>
                 </div>
             </div>
         </div>
