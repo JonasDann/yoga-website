@@ -2,6 +2,7 @@
 # IntelliJ
 /out/
 /.idea/
+*.iml
 ### Node template
 # Logs
 logs
