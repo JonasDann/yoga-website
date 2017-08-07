@@ -6,11 +6,14 @@
 
 @title-font-size: 27px;
 @subtitle-font-size: 17px;
-@normal-font-size: 20px;
+@large-font-size: 20px;
+@medium-font-size: 16px;
 @small-font-size: 12px;
 @tiny-font-size: 9px;
 
-@mobile-width: 576px;
+@small-width: 576px;
+@medium-width: 768px;
+@large-width: 992px;
 
 //Mixins
 
@@ -28,7 +31,7 @@ html, body {
 body {
 	margin: 0;
 	font-family: 'Quicksand', sans-serif;
-    font-size: @normal-font-size;
+    font-size: @large-font-size;
 
     .index-image {
         height: 100%;
@@ -68,14 +71,18 @@ body {
         }
     }
 
-    @media screen and (max-width: @mobile-width) {
-        font-size: @small-font-size;
+    @media screen and (max-width: @medium-width) {
+        font-size: @medium-font-size;
 
         > .footer-wrapper > .footer {
             .col-sm-4 {
                 text-align: center;
             }
         }
+    }
+
+    @media screen and (max-width: @small-width) {
+        font-size: @small-font-size;
     }
 }
 
@@ -98,13 +105,13 @@ p:last-child {
         width: 80%;
         margin-left: auto;
         margin-right: auto;
-        max-width: 800px;
+        max-width: 950px;
 
         .title {
             font-size: @title-font-size;
             color: rgb(67, 78, 95);
-            padding: 20px 0;
             line-height: 85%;
+            padding: 20px 20px 20px 0;
 
             a {
                 text-decoration: none;
@@ -133,15 +140,14 @@ p:last-child {
 
             .glyphicon {
                 padding: 20px;
+                margin: -20px;
 
                 &.glyphicon-remove {
                     display: none;
                 }
             }
 
-            @navigation-breakpoint: 950px;
-
-            @media screen and (min-width: @navigation-breakpoint) {
+            @media screen and (min-width: @large-width) {
                 ul {
                     margin: 0;
                     padding: 0;
@@ -152,6 +158,12 @@ p:last-child {
 
                         a {
                             display: block;
+                            border-bottom: 3px solid transparent;
+
+                            &:hover, &.current {
+                                color: black;
+                                border-bottom: 3px solid @pink-background;
+                            }
                         }
 
                         &:last-child {
@@ -168,8 +180,8 @@ p:last-child {
                     display: none;
                 }
             }
-            @media screen and (max-width: @navigation-breakpoint) {
-                font-size: @normal-font-size;
+            @media screen and (max-width: @large-width) {
+                font-size: @large-font-size;
 
                 ul {
                     position: absolute;
@@ -189,7 +201,7 @@ p:last-child {
                     }
                 }
             }
-            @media screen and (max-width: @mobile-width) {
+            @media screen and (max-width: @small-width) {
                 ul {
                     width: 100%;
                     left: 0;
@@ -201,13 +213,8 @@ p:last-child {
     }
 }
 
-.navigation ul li a:hover, .navigation ul li a.current {
-    color: black;
-    border-bottom: 3px solid @pink-background;
-}
-
 .welcome, .contact-wrapper, .container-fluid.dates h1, body > .footer-wrapper > .footer, .yoga-a-z {
-    @media screen and (min-width: @mobile-width) {
+    @media screen and (min-width: @medium-width) {
         width: 560px;
         margin-left: auto;
         margin-right: auto;
@@ -255,6 +262,12 @@ p:last-child {
             }
         }
     }
+
+    @media screen and (max-width: @large-width) {
+        .workshop {
+            max-width: 560px;
+        }
+    }
 }
 
 .yoga-a-z {
@@ -290,11 +303,16 @@ p:last-child {
         resize: vertical;
     }
 
-    @media screen and (max-width: @mobile-width) {
+    @media screen and (max-width: @small-width) {
         padding: 20px 15px;
 
         h1 {
             text-align: center;
+        }
+
+        button {
+            display: block;
+            margin: auto;
         }
     }
 }
@@ -326,7 +344,7 @@ p {
     margin-bottom: 25px;
 }
 
-@media screen and (max-width: @mobile-width) {
+@media screen and (max-width: @small-width) {
     h1 {
         text-align: center;
     }

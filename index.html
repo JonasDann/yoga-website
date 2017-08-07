@@ -35,6 +35,16 @@
 
                 $closeBurger.on("click", closeMenu);
                 $menu.find("li").on("click", closeMenu);
+
+                $(window).on("resize", function() {
+                    if ($(window).width() > 992) {
+                        $menu.show();
+                        $closeBurger.hide();
+                        $burger.show();
+                    } else if ($burger.is(":visible")) {
+                        $menu.hide();
+                    }
+                })
             });
         </script>
 	</head>
