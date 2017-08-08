@@ -24,6 +24,16 @@ body .index-image-wrapper .index-image {
   margin-right: auto;
   visibility: hidden;
 }
+@media screen and (max-width: 576px) {
+  body .index-image-wrapper {
+    background: url("images/P1050044.JPG") no-repeat center center;
+    background-size: auto 100%;
+  }
+  body .index-image-wrapper .index-image {
+    height: auto;
+    width: 100%;
+  }
+}
 body > .content {
   width: 80%;
   margin-left: auto;
