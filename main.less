@@ -1,8 +1,7 @@
 @pink-background: rgb(240, 85, 147);
 @pink-background-hover: rgb(208, 75, 128);
 @pink-border: rgb(195, 70, 120);
-@white-transparent: rgba(255, 255, 255, 0.75);
-@blue-title: rgb(79, 82, 168);
+@black-transparent: rgba(0, 0, 0, 0.5);
 
 @title-font-size: 27px;
 @subtitle-font-size: 17px;
@@ -35,7 +34,7 @@ body {
 
     .index-image-wrapper {
         height: 100%;
-        background: url("./images/P1050025_original.JPG") no-repeat center center;
+        background: url("images/P1050038.JPG") no-repeat center center;
         background-size: 100% auto;
 
         box-shadow: inset 0 -100px 100px -100px rgba(0,0,0,0.75);
@@ -107,11 +106,12 @@ p:last-child {
 .nav-bar-wrapper {
     position: absolute;
     width: 100%;
-    background-color: @white-transparent;
+    background-color: @black-transparent;
+    color: white;
 
     .nav-bar {
         display: flex;
-        font-weight: 700;
+        font-weight: 500;
         width: 80%;
         margin-left: auto;
         margin-right: auto;
@@ -119,18 +119,18 @@ p:last-child {
 
         .title {
             font-size: @title-font-size;
-            color: rgb(67, 78, 95);
+            font-weight: 300;
             line-height: 85%;
             padding: 20px 20px 20px 0;
 
             a {
                 text-decoration: none;
-                color: @blue-title;
+                color: white;
             }
 
             .subtitle {
                 font-size: @subtitle-font-size;
-                color: @blue-title;
+                color: @pink-background;
             }
         }
 
@@ -144,7 +144,11 @@ p:last-child {
 
                 a {
                     text-decoration: none;
-                    color: rgb(67, 78, 95);
+                    color: white;
+
+                    &:hover {
+                        font-weight: 700;
+                    }
                 }
             }
 
@@ -171,7 +175,6 @@ p:last-child {
                             border-bottom: 3px solid transparent;
 
                             &:hover, &.current {
-                                color: black;
                                 border-bottom: 3px solid @pink-background;
                             }
                         }
@@ -197,9 +200,9 @@ p:last-child {
                     position: absolute;
                     right: 10%;
                     top: 91px;
-                    background-color: @white-transparent;
+                    background-color: @black-transparent;
                     padding: 20px;
-                    border-top: @blue-title solid 1px;
+                    border-top: white solid 1px;
                     display: none;
 
                     li {
@@ -358,4 +361,8 @@ p {
     h1 {
         text-align: center;
     }
+}
+
+strong {
+    font-weight: 700;
 }
