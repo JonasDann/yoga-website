@@ -20,6 +20,11 @@
     box-shadow: 0 0 15px 0 rgba(0,0,0,0.5);
 }
 
+.round {
+    border-radius: 6px;
+    overflow: hidden;
+}
+
 // Styles
 
 html, body {
@@ -34,7 +39,7 @@ body {
 
     .index-image-wrapper {
         height: 100%;
-        background: url("images/P1050038.JPG") no-repeat center center;
+        background: url("images/P1050038.png") no-repeat center center;
         background-size: 100% auto;
 
         box-shadow: inset 0 -100px 100px -100px rgba(0,0,0,0.75);
@@ -49,7 +54,7 @@ body {
         }
 
         @media screen and (max-width: @small-width) {
-            background: url("images/P1050044.JPG") no-repeat center center;
+            background: url("images/P1050044.png") no-repeat center center;
             background-size: auto 100%;
 
             .index-image {
@@ -82,12 +87,20 @@ body {
 
             .impressum {
                 text-align: center;
+
+                a {
+                    display: block;
+                }
             }
 
             .design {
                 text-align: right;
             }
         }
+    }
+
+    .btn-pink {
+        font-size: @large-font-size;
     }
 
     @media screen and (max-width: @medium-width) {
@@ -236,6 +249,27 @@ p:last-child {
     }
 }
 
+.impressum, .dataprotection {
+    .nav-bar-wrapper {
+        position: static;
+        background-color: rgb(60, 60, 60);
+    }
+
+    .content {
+        max-width: 560px;
+        margin-left: auto;
+        margin-right: auto;
+
+        a {
+            color: @pink-background;
+        }
+    }
+
+    .footer-wrapper {
+        margin-top: 30px;
+    }
+}
+
 .welcome, .contact-wrapper, .container-fluid.dates h1, body > .footer-wrapper > .footer, .yoga-a-z {
     @media screen and (min-width: @medium-width) {
         width: 560px;
@@ -258,14 +292,16 @@ p:last-child {
     }
 
     .workshop {
-        background-color: rgb(236, 236, 236);
+        @workshop-padding: 40px;
+
         .box-shadow;
+        .round;
 
         .image {
-            background-color: white;
-
+            height: 150px;
+            background: url("images/yoga-mats.jpg") no-repeat center center;
+            background-size: 100% auto;
             img {
-                height: 150px;
                 display: block;
                 margin-left: auto;
                 margin-right: auto;
@@ -273,15 +309,15 @@ p:last-child {
         }
 
         .content {
-            padding: 0 15px 15px 15px;
+            padding: 0 @workshop-padding (@workshop-padding / 2) @workshop-padding;
+            border-bottom: rgb(200, 200, 200) 1px solid;
         }
 
         .footer {
-            background-color: white;
-            padding: 15px;
+            padding: (@workshop-padding / 2) @workshop-padding @workshop-padding @workshop-padding;
 
             button {
-                float: right;
+                margin-top: @workshop-padding / 2;
             }
         }
     }
@@ -291,6 +327,10 @@ p:last-child {
             max-width: 560px;
         }
     }
+}
+
+a[name="dates"], a[name="yoga-a-z"] {
+    display: block;
 }
 
 .yoga-a-z {
@@ -315,6 +355,7 @@ p:last-child {
 .contact-wrapper {
     padding: 40px;
     .box-shadow;
+    .round;
     margin-top: 45px;
     margin-bottom: 30px;
 

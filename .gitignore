@@ -63,5 +63,4 @@ typings/
 # dotenv environment variables file
 .env
 
-main.css
-/yoga-website/
+Thumbs.db
