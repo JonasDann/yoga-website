@@ -11,6 +11,7 @@ body {
   width: 100%;
 }
 body {
+  hyphens: auto;
   margin: 0;
   font-family: 'Quicksand', sans-serif;
   font-size: 20px;
@@ -226,7 +227,7 @@ p:last-child {
 .dates.container-fluid {
   padding-left: 0;
   padding-right: 0;
-  max-width: 530px;
+  max-width: 560px;
 }
 .dates.container-fluid h1 {
   max-width: 560px;
