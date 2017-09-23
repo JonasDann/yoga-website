@@ -14,10 +14,14 @@
 @medium-width: 768px;
 @large-width: 992px;
 
+@section-spacing: 120px;
+@box-shadow-width: 10px;
+@card-padding: 40px;
+
 //Mixins
 
 .box-shadow {
-    box-shadow: 0 0 15px 0 rgba(0,0,0,0.5);
+    box-shadow: 0 0 @box-shadow-width 0 rgba(0,0,0,0.4);
 }
 
 .round {
@@ -41,7 +45,7 @@ body {
     .index-image-wrapper {
         height: 100%;
         background: url("images/P1050038.png") no-repeat center center;
-        background-size: 100% auto;
+        background-size: cover;
 
         box-shadow: inset 0 -100px 100px -100px rgba(0,0,0,0.75);
 
@@ -82,20 +86,14 @@ body {
             margin-left: auto;
             margin-right: auto;
 
-            a {
-                color: white;
-            }
-
-            .impressum {
-                text-align: center;
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 5px 0;
 
                 a {
-                    display: block;
+                    color: white;
                 }
-            }
-
-            .design {
-                text-align: right;
             }
         }
     }
@@ -120,7 +118,14 @@ body {
 }
 
 h1 {
+    position: relative;
     font-weight: 700;
+
+    .underscore {
+        color: @pink-background;
+        position: absolute;
+        left: -27px;
+    }
 }
 
 p:last-child {
@@ -171,7 +176,7 @@ p:last-child {
                     color: white;
 
                     &:hover {
-                        font-weight: 700;
+                        //font-weight: 700;
                     }
                 }
             }
@@ -191,24 +196,33 @@ p:last-child {
                     padding: 0;
 
                     li {
+                        position: relative;
                         float: left;
                         padding: 20px;
 
-                        a {
+                        a:not(.btn) {
                             display: block;
                             border-bottom: 3px solid transparent;
 
-                            &:hover, &.current {
-                                border-bottom: 3px solid @pink-background;
+                            &:hover:after {
+                                position: absolute;
+                                top: 22px;
+                                left: 7px;
+                                content: "_";
+                                color: @pink-background;
                             }
                         }
 
                         &:last-child {
-                            padding-right: 0;
+                            padding: 14px 0 14px 14px;
                         }
 
                         &:first-child {
                             padding-left: 0;
+
+                            a:hover:after {
+                                left: -13px;
+                            }
                         }
                     }
                 }
@@ -271,7 +285,11 @@ p:last-child {
     }
 }
 
-.welcome, .contact-wrapper, .container-fluid.dates h1, body > .footer-wrapper > .footer, .yoga-a-z {
+.section {
+    margin-top: @section-spacing;
+}
+
+.section, .contact-wrapper, body > .footer-wrapper > .footer {
     @media screen and (min-width: @medium-width) {
         width: 560px;
         margin-left: auto;
@@ -279,10 +297,7 @@ p:last-child {
     }
 }
 
-.dates.container-fluid {
-    padding-left: 0;
-    padding-right: 0;
-
+.dates {
     //max-width: 560px * 3 + 15px * 4;
     max-width: 560px;
 
@@ -290,10 +305,11 @@ p:last-child {
         max-width: 560px;
         margin-left: auto;
         margin-right: auto;
+        margin-bottom: 30px;
     }
 
     .workshop {
-        @workshop-padding: 40px;
+        @workshop-padding: @card-padding;
 
         .box-shadow;
         .round;
@@ -310,12 +326,16 @@ p:last-child {
         }
 
         .content {
-            padding: 0 @workshop-padding (@workshop-padding / 2) @workshop-padding;
+            padding: 0 @workshop-padding (@workshop-padding / 4) @workshop-padding;
             border-bottom: rgb(200, 200, 200) 1px solid;
+
+            h2 {
+                margin-top: @workshop-padding;
+            }
         }
 
         .footer {
-            padding: (@workshop-padding / 2) @workshop-padding @workshop-padding @workshop-padding;
+            padding: (@workshop-padding / 4) @workshop-padding @workshop-padding @workshop-padding;
 
             button {
                 margin-top: @workshop-padding / 2;
@@ -335,6 +355,8 @@ a[name="dates"], a[name="yoga-a-z"] {
 }
 
 .yoga-a-z {
+    margin-top: @section-spacing + @box-shadow-width;
+
     h1 {
         margin-top: 35px;
     }
@@ -353,31 +375,44 @@ a[name="dates"], a[name="yoga-a-z"] {
     }
 }
 
-.contact-wrapper {
-    padding: 40px;
-    .box-shadow;
-    .round;
-    margin-top: 45px;
-    margin-bottom: 30px;
-
+.contact {
     h1 {
-        margin-top: 0;
+        margin-bottom: 30px;
     }
 
-    textarea {
-        resize: vertical;
-    }
+    .contact-wrapper {
+        padding: @card-padding;
+        .box-shadow;
+        .round;
+        margin-bottom: @section-spacing + @box-shadow-width;
 
-    @media screen and (max-width: @small-width) {
-        padding: 20px 15px;
-
-        h1 {
-            text-align: center;
+        .form-group {
+            margin-bottom: 10px;
         }
 
-        button {
-            display: block;
-            margin: auto;
+        .btn {
+            margin-top: 10px;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        @media screen and (max-width: @small-width) {
+            padding: 20px 15px;
+
+            h1 {
+                text-align: center;
+            }
+
+            button {
+                display: block;
+                margin: auto;
+            }
         }
     }
 }
@@ -385,7 +420,7 @@ a[name="dates"], a[name="yoga-a-z"] {
 .btn-pink {
     background-color: @pink-background;
     color: white;
-    border-color: @pink-border;
+    border: none;
     font-weight: 700;
 }
 
@@ -419,7 +454,79 @@ strong {
     font-weight: 700;
 }
 
-.sutra {
-    font-style: italic;
-    color: @pink-background;
+#yoga-modal {
+    .modal-dialog {
+        .modal-content {
+            .box-shadow;
+            .round;
+            border: none;
+
+            .modal-header {
+                position: relative;
+                padding: @card-padding / 4 @card-padding 0;
+                border-bottom: rgb(200, 200, 200) 1px solid;
+
+                h4 {
+                    position: absolute;
+                    left: -20px;
+                    color: @pink-background;
+                    font-size: 24px;
+                    font-weight: 900;
+                    margin-right: 20px;
+                }
+
+                ul.tabs {
+                    float: left;
+                    font-size: 24px;
+                    font-weight: 500;
+                    list-style-type: none;
+                    padding: 0;
+                    margin: 0 0 -1px;
+
+                    li {
+                        float: left;
+                        padding: 5px 15px;
+                        border-top-left-radius: 6px;
+                        border-top-right-radius: 6px;
+
+                        &.active {
+                            border: rgb(200, 200, 200) 1px solid;
+                            border-bottom-color: white;
+                        }
+
+                        a {
+                            color: black;
+
+                            &:hover {
+                                text-decoration: none;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+
+                    &:after {
+                        clear: both;
+                    }
+                }
+
+                .close {
+                    margin-top: 8px;
+                    font-size: 24px;
+                }
+            }
+
+            .modal-body {
+                padding: @card-padding/2 @card-padding @card-padding;
+            }
+        }
+
+        @media screen and (min-width: @medium-width) {
+            max-width: 560px;
+        }
+    }
+
+    .sutra {
+        font-style: italic;
+        color: @pink-background;
+    }
 }

@@ -1,5 +1,5 @@
 .box-shadow {
-  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
 }
 .round {
   border-radius: 6px;
@@ -19,7 +19,7 @@ body {
 body .index-image-wrapper {
   height: 100%;
   background: url("images/P1050038.png") no-repeat center center;
-  background-size: 100% auto;
+  background-size: cover;
   box-shadow: inset 0 -100px 100px -100px rgba(0, 0, 0, 0.75);
 }
 body .index-image-wrapper .index-image {
@@ -55,17 +55,13 @@ body > .footer-wrapper > .footer {
   margin-left: auto;
   margin-right: auto;
 }
-body > .footer-wrapper > .footer a {
+body > .footer-wrapper > .footer ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 5px 0;
+}
+body > .footer-wrapper > .footer ul a {
   color: white;
-}
-body > .footer-wrapper > .footer .impressum {
-  text-align: center;
-}
-body > .footer-wrapper > .footer .impressum a {
-  display: block;
-}
-body > .footer-wrapper > .footer .design {
-  text-align: right;
 }
 body .btn-pink {
   font-size: 20px;
@@ -84,7 +80,13 @@ body .btn-pink {
   }
 }
 h1 {
+  position: relative;
   font-weight: 700;
+}
+h1 .underscore {
+  color: #f05593;
+  position: absolute;
+  left: -27px;
 }
 p:last-child {
   margin-bottom: 0;
@@ -129,9 +131,6 @@ p:last-child {
   text-decoration: none;
   color: white;
 }
-.nav-bar-wrapper .nav-bar .navigation ul a:hover {
-  font-weight: 700;
-}
 .nav-bar-wrapper .nav-bar .navigation .glyphicon {
   padding: 20px;
   margin: -20px;
@@ -145,22 +144,29 @@ p:last-child {
     padding: 0;
   }
   .nav-bar-wrapper .nav-bar .navigation ul li {
+    position: relative;
     float: left;
     padding: 20px;
   }
-  .nav-bar-wrapper .nav-bar .navigation ul li a {
+  .nav-bar-wrapper .nav-bar .navigation ul li a:not(.btn) {
     display: block;
     border-bottom: 3px solid transparent;
   }
-  .nav-bar-wrapper .nav-bar .navigation ul li a:hover,
-  .nav-bar-wrapper .nav-bar .navigation ul li a.current {
-    border-bottom: 3px solid #f05593;
+  .nav-bar-wrapper .nav-bar .navigation ul li a:not(.btn):hover:after {
+    position: absolute;
+    top: 22px;
+    left: 7px;
+    content: "_";
+    color: #f05593;
   }
   .nav-bar-wrapper .nav-bar .navigation ul li:last-child {
-    padding-right: 0;
+    padding: 14px 0 14px 14px;
   }
   .nav-bar-wrapper .nav-bar .navigation ul li:first-child {
     padding-left: 0;
+  }
+  .nav-bar-wrapper .nav-bar .navigation ul li:first-child a:hover:after {
+    left: -13px;
   }
   .nav-bar-wrapper .nav-bar .navigation .burger-wrapper {
     display: none;
@@ -213,60 +219,66 @@ p:last-child {
 .dataprotection .footer-wrapper {
   margin-top: 30px;
 }
+.section {
+  margin-top: 120px;
+}
 @media screen and (min-width: 768px) {
-  .welcome,
+  .section,
   .contact-wrapper,
-  .container-fluid.dates h1,
-  body > .footer-wrapper > .footer,
-  .yoga-a-z {
+  body > .footer-wrapper > .footer {
     width: 560px;
     margin-left: auto;
     margin-right: auto;
   }
 }
-.dates.container-fluid {
-  padding-left: 0;
-  padding-right: 0;
+.dates {
   max-width: 560px;
 }
-.dates.container-fluid h1 {
+.dates h1 {
   max-width: 560px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 30px;
 }
-.dates.container-fluid .workshop {
-  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.5);
+.dates .workshop {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
   border-radius: 6px;
   overflow: hidden;
 }
-.dates.container-fluid .workshop .image {
+.dates .workshop .image {
   height: 150px;
   background: url("images/yoga-mats.jpg") no-repeat center center;
   background-size: 100% auto;
 }
-.dates.container-fluid .workshop .image img {
+.dates .workshop .image img {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
-.dates.container-fluid .workshop .content {
-  padding: 0 40px 20px 40px;
+.dates .workshop .content {
+  padding: 0 40px 10px 40px;
   border-bottom: #c8c8c8 1px solid;
 }
-.dates.container-fluid .workshop .footer {
-  padding: 20px 40px 40px 40px;
+.dates .workshop .content h2 {
+  margin-top: 40px;
 }
-.dates.container-fluid .workshop .footer button {
+.dates .workshop .footer {
+  padding: 10px 40px 40px 40px;
+}
+.dates .workshop .footer button {
   margin-top: 20px;
 }
 @media screen and (max-width: 992px) {
-  .dates.container-fluid .workshop {
+  .dates .workshop {
     max-width: 560px;
   }
 }
 a[name="dates"],
 a[name="yoga-a-z"] {
   display: block;
+}
+.yoga-a-z {
+  margin-top: 130px;
 }
 .yoga-a-z h1 {
   margin-top: 35px;
@@ -282,28 +294,36 @@ a[name="yoga-a-z"] {
   border-color: #c34678;
   font-weight: 700;
 }
-.contact-wrapper {
-  padding: 40px;
-  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.5);
-  border-radius: 6px;
-  overflow: hidden;
-  margin-top: 45px;
+.contact h1 {
   margin-bottom: 30px;
 }
-.contact-wrapper h1 {
+.contact .contact-wrapper {
+  padding: 40px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 130px;
+}
+.contact .contact-wrapper .form-group {
+  margin-bottom: 10px;
+}
+.contact .contact-wrapper .btn {
+  margin-top: 10px;
+}
+.contact .contact-wrapper h1 {
   margin-top: 0;
 }
-.contact-wrapper textarea {
+.contact .contact-wrapper textarea {
   resize: vertical;
 }
 @media screen and (max-width: 576px) {
-  .contact-wrapper {
+  .contact .contact-wrapper {
     padding: 20px 15px;
   }
-  .contact-wrapper h1 {
+  .contact .contact-wrapper h1 {
     text-align: center;
   }
-  .contact-wrapper button {
+  .contact .contact-wrapper button {
     display: block;
     margin: auto;
   }
@@ -311,7 +331,7 @@ a[name="yoga-a-z"] {
 .btn-pink {
   background-color: #f05593;
   color: white;
-  border-color: #c34678;
+  border: none;
   font-weight: 700;
 }
 .btn-pink:hover,
@@ -340,7 +360,66 @@ p {
 strong {
   font-weight: 700;
 }
-.sutra {
+#yoga-modal .modal-dialog .modal-content {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+  border-radius: 6px;
+  overflow: hidden;
+  border: none;
+}
+#yoga-modal .modal-dialog .modal-content .modal-header {
+  position: relative;
+  padding: 10px 40px 0;
+  border-bottom: #c8c8c8 1px solid;
+}
+#yoga-modal .modal-dialog .modal-content .modal-header h4 {
+  position: absolute;
+  left: -20px;
+  color: #f05593;
+  font-size: 24px;
+  font-weight: 900;
+  margin-right: 20px;
+}
+#yoga-modal .modal-dialog .modal-content .modal-header ul.tabs {
+  float: left;
+  font-size: 24px;
+  font-weight: 500;
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 -1px;
+}
+#yoga-modal .modal-dialog .modal-content .modal-header ul.tabs li {
+  float: left;
+  padding: 5px 15px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+#yoga-modal .modal-dialog .modal-content .modal-header ul.tabs li.active {
+  border: #c8c8c8 1px solid;
+  border-bottom-color: white;
+}
+#yoga-modal .modal-dialog .modal-content .modal-header ul.tabs li a {
+  color: black;
+}
+#yoga-modal .modal-dialog .modal-content .modal-header ul.tabs li a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+#yoga-modal .modal-dialog .modal-content .modal-header ul.tabs:after {
+  clear: both;
+}
+#yoga-modal .modal-dialog .modal-content .modal-header .close {
+  margin-top: 8px;
+  font-size: 24px;
+}
+#yoga-modal .modal-dialog .modal-content .modal-body {
+  padding: 20px 40px 40px;
+}
+@media screen and (min-width: 768px) {
+  #yoga-modal .modal-dialog {
+    max-width: 560px;
+  }
+}
+#yoga-modal .sutra {
   font-style: italic;
   color: #f05593;
 }
