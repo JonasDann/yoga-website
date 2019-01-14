@@ -159,9 +159,6 @@ p:last-child {
     content: "_";
     color: #f05593;
   }
-  .nav-bar-wrapper .nav-bar .navigation ul li:last-child {
-    padding: 14px 0 14px 14px;
-  }
   .nav-bar-wrapper .nav-bar .navigation ul li:first-child {
     padding-left: 0;
   }
@@ -279,6 +276,7 @@ a[name="yoga-a-z"] {
 }
 .yoga-a-z {
   margin-top: 130px;
+  margin-bottom: 120px;
 }
 .yoga-a-z h1 {
   margin-top: 35px;
